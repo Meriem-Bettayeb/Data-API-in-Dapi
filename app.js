@@ -46,9 +46,7 @@ async function Transactions(header){
   return resp
 }
 
-
 async function main(){
- 
   const exchangeCode= await ExchangeCode()
   console.log(exchangeCode.data)
   let header = {
@@ -56,14 +54,15 @@ async function main(){
   }
   let identity= await Identity(header)
   console.log(identity.data)
+
   let useracounts= await UserAccounts(header)
   console.log(useracounts.data)
+
   let accountbalance= await AccountBalance(header)
   console.log(accountbalance.data)
+  
   let transactions= await Transactions(header)
   console.log(transactions.data)
 }
-
 main()
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`app listening on port ${port}!`))
