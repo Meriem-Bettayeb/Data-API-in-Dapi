@@ -1,0 +1,34 @@
+<body>
+<script src="https://cdn.dapi.co/connect/v1/connector.js"></script>
+<script>
+      var handler = Dapi.create({
+        //Intiation Connector with the correct paramteres
+        environment: 'sandbox',
+        appKey:'ab078601d1b13f323861c33f0eb606af399e136512aac8ff3df96f9cd6401d4f',
+        redirectUri: 'http://127.0.0.1:5500',
+        onSuccess: function(access_code) {
+          //This is the callback function when the end-user connects succesfully
+          console.log('onSuccess')
+          console.log(access_code)
+        },
+        onFailure: function(err) {
+          //This is the callback function when the end-user is unable to connect succesfully
+          if (err != null) {
+            console.log('Error')
+            console.log(err)
+          } else {
+            console.log('No error')
+          }
+        },
+      })
+      var clickMe = function() {
+        //function to show the Connect interface
+        handler.open()
+      }
+</script>
+
+  <script>
+    clickMe();
+    </script>
+  
+</body>
